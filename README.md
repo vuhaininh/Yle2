@@ -18,7 +18,7 @@ Install package dependencies
 ```
  npm install
  ```
-Run test // not necessary
+Run test (can skip this step)
 ```
 npm run test:watch
 ```
