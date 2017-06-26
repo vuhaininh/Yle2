@@ -12,7 +12,7 @@ git clone git@github.com:vuhaininh/YleAudio.git
 ## Run the app in local
 Go to the app folder
 ```
- cd AudioList
+ cd YleAudio
  ```
 Install package dependencies
 ```
