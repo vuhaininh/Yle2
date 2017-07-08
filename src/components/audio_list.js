@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {selectAudio} from '../actions';
-import rest from "../rest/yle"; //our redux-rest object
-
+import rest from '../rest/yle'; //our redux-rest object
+import AudioItem from './audio_item';
 class AudioList extends Component{
 
   componentDidMount(){
@@ -18,14 +17,9 @@ class AudioList extends Component{
         return <div> No audio matches the search term</div> // In case there is no search Result for the keyword
       else{
         //Render View <li> for each audio item in the list
-        var itemStyle = "list-group-item";
         return( list.map( (audio) => {
-          if(selectedAudio)
-              (audio.id == selectedAudio.id) ?  itemStyle = "list-group-item active" : itemStyle = "list-group-item list-group-item-success"
           return (
-            <li key={audio.id} className={itemStyle}  onClick = {() => this.props.dispatch(selectAudio(audio))}>
-              {audio.itemTitle.fi ? audio.itemTitle.fi : audio.itemTitle.sv}
-            </li>
+            <AudioItem key={audio.id} audio = {audio} />
           );
         }));
       }
@@ -33,12 +27,13 @@ class AudioList extends Component{
     else {
       // When fetching data, show Loading
       return <div className="audio-list">Loading...</div>
+
     }
   }
 
   render(){
     return(
-      <div  className="list-group col-md-5 audio-list">
+      <div  className="list-group col-md-12 audio-list">
         <center><h3 className="page-header">Audio List</h3></center>
         <ul>
           {this.renderAudios()}
@@ -49,7 +44,7 @@ class AudioList extends Component{
 }
 
 function mapStateToProps(state){
-  return {audios: state.audios,selectedAudio: state.selectedAudio}
+  return {audios: state.audios}
 }
 
 export default connect(mapStateToProps)(AudioList);

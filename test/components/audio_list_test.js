@@ -6,12 +6,20 @@ describe('Audio List Component', () => {
   beforeEach( () => {
     const props = { audios:{data: {data:
           [{id: 1, itemTitle:{fi:"Title 1"}, description:{fi:"Description 1" }},{id: 2,  itemTitle:{fi:"Title 2"}, description:{fi:"Description 2" }}]
-        }},
-        selectedAudio: {id: 1,  itemTitle:{fi:"Title 1"}, description:{fi:"Description 1" }}
+        }}
     };
     component = renderComponent(AudioList,null, props);
   });
+  describe('Audio Item Component', () => {
+    it('shows correct description', () => {
+      expect(component).to.contain('Description 1');
+      expect(component).to.contain('Description 2');
+    });
+    it('should have correct class', () =>{
+      expect(component.find('div')).to.have.class('audio-item');
+    });
 
+  });
   it('shows an LI for each comment', () => {
     expect(component.find('li').length).to.equal(2);
   });
@@ -30,8 +38,7 @@ describe('Audio List Component', () => {
     beforeEach( () => {
       const props = { audios:{data: {data:
             []
-          }},
-          selectedAudio: null
+          }}
       };
       noDataComponent = renderComponent(AudioList,null, props);
     });
