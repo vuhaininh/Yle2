@@ -7,7 +7,7 @@ http://blog.teamtreehouse.com/install-node-js-npm-windows
 ## Get the code
 Open command promp and run command line
 ```
-git clone https://github.com/vuhaininh/YleAudio.git
+https://github.com/vuhaininh/Yle2.git
 ```
 ## Run the app in local
 Go to the app folder
