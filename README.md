@@ -12,7 +12,7 @@ https://github.com/vuhaininh/Yle2.git
 ## Run the app in local
 Go to the app folder
 ```
- cd YleAudio
+ cd Yle2
  ```
 Install package dependencies
 ```
